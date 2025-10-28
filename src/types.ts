@@ -69,3 +69,20 @@ export interface MLScoresBatchResult {
   results: MLScoreResult[];
   errors: string[];
 }
+
+/**
+ * GraphQL 账户查询响应
+ */
+export interface AccountQueryResponse {
+  account: Account | null;
+}
+
+/**
+ * GraphQL 批量账户查询响应
+ */
+export interface AccountsBulkQueryResponse {
+  accountsBulk: {
+    items: Account[];
+  } | null;
+}
+

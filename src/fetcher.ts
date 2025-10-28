@@ -9,7 +9,9 @@ import { GraphQLClient } from 'graphql-request';
 import { 
   Account, 
   MLScoreResult, 
-  MLScoresBatchResult 
+  MLScoresBatchResult,
+  AccountQueryResponse,
+  AccountsBulkQueryResponse
 } from './types';
 import { 
   DEFAULT_API_ENDPOINT, 
@@ -81,7 +83,7 @@ export class LensMLScoreFetcher {
       };
 
       // 发送 GraphQL 请求
-      const response: any = await this.client.request(ACCOUNT_QUERY, variables);
+      const response = await this.client.request<AccountQueryResponse>(ACCOUNT_QUERY, variables);
 
       // 解析响应
       const account: Account | null = response.account;
@@ -141,7 +143,8 @@ export class LensMLScoreFetcher {
 
     // 如果地址数量超过最大批量大小，分批处理
     if (addresses.length > MAX_BATCH_SIZE) {
-      console.warn(`地址数量 (${addresses.length}) 超过最大批量大小 (${MAX_BATCH_SIZE})，将分批处理`);
+      // 添加警告信息到 errors 数组而不是使用 console.warn
+      errors.push(`地址数量 (${addresses.length}) 超过最大批量大小 (${MAX_BATCH_SIZE})，将分批处理`);
       
       for (let i = 0; i < addresses.length; i += MAX_BATCH_SIZE) {
         const batch = addresses.slice(i, i + MAX_BATCH_SIZE);
@@ -151,7 +154,7 @@ export class LensMLScoreFetcher {
       }
 
       return {
-        success: errors.length === 0,
+        success: errors.length === 1, // 只有分批警告信息时认为成功
         results,
         errors,
       };
@@ -201,7 +204,7 @@ export class LensMLScoreFetcher {
       };
 
       // 发送 GraphQL 请求
-      const response: any = await this.client.request(ACCOUNTS_BULK_QUERY, variables);
+      const response = await this.client.request<AccountsBulkQueryResponse>(ACCOUNTS_BULK_QUERY, variables);
 
       // 解析响应
       const accounts: Account[] = response.accountsBulk?.items || [];
@@ -262,12 +265,11 @@ export class LensMLScoreFetcher {
    * 获取账户的完整信息（包括 ML Score）
    * 
    * @param address - 账户地址
-   * @returns Promise<Account | null> - 账户完整信息
+   * @returns Promise<Account | null> - 账户完整信息，如果失败返回 null
    */
   async fetchAccountInfo(address: string): Promise<Account | null> {
     try {
       if (!this.isValidAddress(address)) {
-        console.error(`无效的以太坊地址格式: ${address}`);
         return null;
       }
 
@@ -277,10 +279,9 @@ export class LensMLScoreFetcher {
         },
       };
 
-      const response: any = await this.client.request(ACCOUNT_QUERY, variables);
+      const response = await this.client.request<AccountQueryResponse>(ACCOUNT_QUERY, variables);
       return response.account || null;
     } catch (error) {
-      console.error(`获取账户信息失败: ${error instanceof Error ? error.message : String(error)}`);
       return null;
     }
   }
@@ -289,14 +290,13 @@ export class LensMLScoreFetcher {
    * 批量获取账户的完整信息（包括 ML Score）
    * 
    * @param addresses - 账户地址数组
-   * @returns Promise<Account[]> - 账户信息数组
+   * @returns Promise<Account[]> - 账户信息数组，过滤掉无效地址和获取失败的账户
    */
   async fetchAccountsInfo(addresses: string[]): Promise<Account[]> {
     try {
       const validAddresses = addresses.filter(addr => this.isValidAddress(addr));
 
       if (validAddresses.length === 0) {
-        console.warn('没有有效的地址');
         return [];
       }
 
@@ -306,10 +306,9 @@ export class LensMLScoreFetcher {
         },
       };
 
-      const response: any = await this.client.request(ACCOUNTS_BULK_QUERY, variables);
+      const response = await this.client.request<AccountsBulkQueryResponse>(ACCOUNTS_BULK_QUERY, variables);
       return response.accountsBulk?.items || [];
     } catch (error) {
-      console.error(`批量获取账户信息失败: ${error instanceof Error ? error.message : String(error)}`);
       return [];
     }
   }

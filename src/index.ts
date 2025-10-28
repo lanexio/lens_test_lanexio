@@ -19,6 +19,8 @@ export type {
   FetchAccountsResponse,
   MLScoreResult,
   MLScoresBatchResult,
+  AccountQueryResponse,
+  AccountsBulkQueryResponse,
 } from './types';
 
 // 导出配置常量
