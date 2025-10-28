@@ -1,0 +1,31 @@
+{
+  "name": "lens-ml-score-fetcher",
+  "version": "1.0.0",
+  "description": "完整的Lens Protocol ML Score获取工具",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/example.js",
+    "dev": "ts-node src/example.ts",
+    "test": "echo \"No tests specified yet\""
+  },
+  "keywords": [
+    "lens",
+    "protocol",
+    "ml-score",
+    "web3",
+    "graphql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "ts-node": "^10.9.1"
+  }
+}
