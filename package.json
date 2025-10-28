@@ -1,0 +1,26 @@
+{
+  "name": "lens-ml-score-fetcher",
+  "version": "1.0.0",
+  "description": "Fetch ML Scores for Lens Protocol accounts",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "example": "node examples/fetch-ml-scores.js",
+    "demo": "node examples/demo.js"
+  },
+  "keywords": [
+    "lens",
+    "protocol",
+    "ml-score",
+    "web3"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@lens-protocol/client": "^2.3.1",
+    "viem": "^2.0.0",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0"
+  }
+}
