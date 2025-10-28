@@ -25,8 +25,16 @@
 - ✅ 单个用户查询
 - ✅ 批量用户查询  
 - ✅ 支持用户名和以太坊地址
+- ✅ 账户搜索功能
 - ✅ 详细的中文教程
 - ✅ 开箱即用的示例代码
+- ✅ 演示模式（无需网络）
+
+### 📚 文档导航
+
+- **[快速开始](QUICKSTART.md)** - 5分钟上手指南（推荐新手）
+- **[完整教程](TUTORIAL.md)** - 详细的功能说明和进阶用法
+- **本文档** - API参考和项目概览
 
 ### 🚀 快速开始（三步搞定）
 
@@ -233,8 +241,16 @@ A complete Lens Protocol ML Score fetching tool with features:
 - ✅ Single user query
 - ✅ Bulk user query
 - ✅ Support for usernames and Ethereum addresses
+- ✅ Account search functionality
 - ✅ Detailed Chinese tutorial
 - ✅ Ready-to-use example code
+- ✅ Demo mode (no network required)
+
+### 📚 Documentation
+
+- **[Quick Start](QUICKSTART.md)** - 5-minute getting started guide (recommended for beginners)
+- **[Full Tutorial](TUTORIAL.md)** - Detailed features and advanced usage (Chinese)
+- **This Document** - API reference and project overview
 
 ### 🚀 Quick Start (3 Steps)
 
