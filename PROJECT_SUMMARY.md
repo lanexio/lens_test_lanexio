@@ -2,8 +2,8 @@
 
 ## ✅ 项目完成情况 / Project Status: COMPLETE
 
-本项目已完整实现了 Lens Protocol ML Score 获取功能，基于官方文档：
-https://lens.xyz/docs/protocol/accounts/fetch
+本项目已完整实现了 Lens Protocol ML Score 获取功能，基于官方文档：  
+[Lens Protocol - Fetch Accounts](https://lens.xyz/docs/protocol/accounts/fetch)
 
 This project has fully implemented the Lens Protocol ML Score fetching functionality based on the official documentation.
 
@@ -13,35 +13,35 @@ This project has fully implemented the Lens Protocol ML Score fetching functiona
 
 ### 1. 核心代码实现 / Core Implementation
 
-| 文件 / File | 功能 / Function | 代码行数 / Lines |
-|------------|----------------|-----------------|
-| `src/client.ts` | 主客户端类实现 / Main client class | 152 行 |
-| `src/config.ts` | GraphQL 查询配置 / GraphQL queries | 101 行 |
-| `src/types.ts` | TypeScript 类型定义 / Type definitions | 99 行 |
-| `src/index.ts` | 模块导出 / Module exports | 27 行 |
+| 文件 / File | 功能 / Function |
+|------------|----------------|
+| `src/client.ts` | 主客户端类实现 / Main client class |
+| `src/config.ts` | GraphQL 查询配置 / GraphQL queries |
+| `src/types.ts` | TypeScript 类型定义 / Type definitions |
+| `src/index.ts` | 模块导出 / Module exports |
 
-**总计核心代码 / Total Core Code: 379 行**
+**总计核心代码 / Total Core Code: ~380 行 / lines**
 
 ### 2. 示例和演示 / Examples & Demos
 
-| 文件 / File | 功能 / Function | 代码行数 / Lines |
-|------------|----------------|-----------------|
-| `src/example.ts` | 真实API调用示例 / Real API examples | 201 行 |
-| `src/demo.ts` | 演示模式（模拟数据）/ Demo with mock data | 225 行 |
+| 文件 / File | 功能 / Function |
+|------------|----------------|
+| `src/example.ts` | 真实API调用示例 / Real API examples |
+| `src/demo.ts` | 演示模式（模拟数据）/ Demo with mock data |
 
-**总计示例代码 / Total Example Code: 426 行**
+**总计示例代码 / Total Example Code: ~425 行 / lines**
 
 ### 3. 文档 / Documentation
 
-| 文件 / File | 内容 / Content | 字数 / Words |
-|------------|----------------|-------------|
-| `README.md` | 项目概述（中英双语）/ Overview | ~1,500 |
-| `README_CN.md` | 完整中文教程 / Complete Chinese tutorial | ~8,200 |
-| `TUTORIAL.md` | 详细英文教程 / Detailed English tutorial | ~8,400 |
-| `QUICKSTART.md` | 快速开始指南 / Quick start | ~1,700 |
-| `INSTALL.md` | 完整安装指南 / Installation guide | ~6,400 |
+| 文件 / File | 内容 / Content |
+|------------|----------------|
+| `README.md` | 项目概述（中英双语）/ Overview |
+| `README_CN.md` | 完整中文教程 / Complete Chinese tutorial |
+| `TUTORIAL.md` | 详细英文教程 / Detailed English tutorial |
+| `QUICKSTART.md` | 快速开始指南 / Quick start |
+| `INSTALL.md` | 完整安装指南 / Installation guide |
 
-**总计文档字数 / Total Documentation: ~26,200 字 / words**
+**总计文档 / Total Documentation: 丰富详尽 / Comprehensive**
 
 ### 4. 配置文件 / Configuration Files
 
@@ -196,9 +196,9 @@ const recommended = accounts
 
 ## 📈 项目统计 / Project Statistics
 
-- **总文件数 / Total Files**: 14 个文件 / files
-- **源代码行数 / Source Code Lines**: ~805 行 / lines
-- **文档字数 / Documentation Words**: ~26,200 字 / words
+- **总文件数 / Total Files**: 15 个文件 / files
+- **源代码 / Source Code**: 完整实现 / Complete implementation
+- **文档 / Documentation**: 丰富详尽 / Comprehensive
 - **支持语言 / Languages**: 中文 + English (双语 / Bilingual)
 - **测试覆盖 / Test Coverage**: 示例和演示完全可运行 / Fully runnable examples and demos
 
@@ -313,6 +313,6 @@ npm run demo
 
 ---
 
-**项目完成日期 / Project Completion Date**: 2025-10-28  
+**项目完成日期 / Project Completion Date**: 2024-10-28  
 **版本 / Version**: 1.0.0  
 **状态 / Status**: ✅ 完成 / COMPLETE
