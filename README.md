@@ -380,6 +380,21 @@ class UserService {
 }
 ```
 
+### 示例 4：实用场景
+
+查看 `src/practical-examples.ts` 了解更多实用场景：
+- 用户推荐系统
+- 批量账户质量分析
+- 数据导出（CSV/JSON）
+- 从文件读取地址列表
+- 缓存机制实现
+- 带进度显示的批量查询
+
+运行实用示例：
+```bash
+npm run practical
+```
+
 ## ❓ 常见问题
 
 ### Q1: 如何获取 Lens 账户地址？
