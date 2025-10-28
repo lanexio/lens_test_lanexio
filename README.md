@@ -15,6 +15,12 @@
 - ✅ 支持主网和测试网
 - ✅ 详细的中文文档和注释
 
+## 📚 文档导航
+
+- **🚀 [5分钟快速入门](./QUICKSTART.md)** - 最快上手的方式
+- **📖 [完整教程文档](./README_TUTORIAL.md)** - 详细的使用教程和API文档
+- **📁 [项目文件说明](./FILES.md)** - 了解每个文件的作用
+
 ## 🚀 快速开始
 
 ### 1. 安装依赖
@@ -38,17 +44,6 @@ npm run dev
 # 或者先编译再运行（生产模式）
 npm start
 ```
-
-## 📖 文档
-
-**完整教程文档**: [README_TUTORIAL.md](./README_TUTORIAL.md)
-
-这份教程提供了：
-- 📚 详细的概念解释
-- 🔧 完整的安装步骤
-- 💡 丰富的使用示例
-- ❓ 常见问题解答
-- 🛠️ 故障排除指南
 
 ## 💻 基本使用
 
@@ -82,7 +77,29 @@ console.log('Results:', batchResult.results);
 │   ├── queries.ts    # GraphQL 查询语句
 │   └── example.ts    # 使用示例
 ├── dist/             # 编译输出目录
-└── README_TUTORIAL.md # 详细教程文档
+├── QUICKSTART.md     # 快速入门指南
+├── README_TUTORIAL.md # 详细教程文档
+└── FILES.md          # 项目文件说明
+```
+
+## 🎯 主要功能
+
+### 获取单个 ML Score
+
+```typescript
+const result = await fetcher.fetchMLScore('0x...');
+```
+
+### 批量获取 ML Score
+
+```typescript
+const result = await fetcher.fetchMLScoresBatch(['0x...', '0x...']);
+```
+
+### 获取完整账户信息
+
+```typescript
+const account = await fetcher.fetchAccountInfo('0x...');
 ```
 
 ## 🔗 相关链接
