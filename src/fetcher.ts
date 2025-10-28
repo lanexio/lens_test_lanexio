@@ -143,7 +143,6 @@ export class LensMLScoreFetcher {
 
     // 如果地址数量超过最大批量大小，分批处理
     if (addresses.length > MAX_BATCH_SIZE) {
-      // 添加警告信息到 errors 数组而不是使用 console.warn
       const warningMessage = `地址数量 (${addresses.length}) 超过最大批量大小 (${MAX_BATCH_SIZE})，将分批处理`;
       
       for (let i = 0; i < addresses.length; i += MAX_BATCH_SIZE) {
@@ -153,15 +152,13 @@ export class LensMLScoreFetcher {
         errors.push(...batchResult.errors);
       }
 
-      // 如果除了警告信息外还有其他错误，添加警告信息
-      if (errors.length > 0) {
-        errors.unshift(warningMessage);
-      }
+      // 将警告信息添加到错误数组的开头
+      const allErrors = [warningMessage, ...errors];
 
       return {
-        success: errors.length === 0 || (errors.length === 1 && errors[0] === warningMessage),
+        success: errors.length === 0, // 只有当没有真正的错误时才成功
         results,
-        errors: errors.length > 0 ? [warningMessage, ...errors.filter(e => e !== warningMessage)] : [],
+        errors: allErrors,
       };
     }
 
