@@ -14,9 +14,6 @@ export const LENS_API_CONFIG = {
   // 默认使用主网
   DEFAULT_ENDPOINT: 'https://api.lens.xyz/graphql',
   
-  // 请求超时时间（毫秒）
-  TIMEOUT: 30000,
-  
   // 最大批量查询数量
   MAX_BATCH_SIZE: 50,
 };
