@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "example": "node examples/fetch-ml-scores.js"
+    "example": "node examples/fetch-ml-scores.js",
+    "demo": "node examples/demo.js"
   },
   "keywords": [
     "lens",

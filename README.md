@@ -36,13 +36,21 @@
 npm install
 ```
 
-#### 第二步：运行示例
+#### 第二步：运行演示（推荐）
+
+```bash
+npm run demo
+```
+
+这会运行一个带模拟数据的演示，展示所有功能的使用方法。
+
+#### 第三步：运行真实API示例
+
+**注意：** 需要网络连接到 `https://api.lens.xyz`
 
 ```bash
 npm run example
 ```
-
-#### 第三步：查看结果
 
 程序会自动查询示例用户的 ML Score 并在终端显示结果。
 
@@ -98,7 +106,18 @@ lens_test_lanexio/
 ├── src/
 │   └── index.js             # 核心功能代码
 └── examples/
-    └── fetch-ml-scores.js   # 使用示例
+    ├── fetch-ml-scores.js   # 真实API使用示例
+    └── demo.js              # 演示脚本（模拟数据）
+```
+
+### 🎮 可用脚本
+
+```bash
+# 运行演示（使用模拟数据，展示功能）
+npm run demo
+
+# 运行真实API示例（需要网络连接）
+npm run example
 ```
 
 ### 🔧 API 文档
@@ -140,11 +159,27 @@ const results = await fetchMLScoresBulk([
 查询单个用户的 ML Score。
 
 **参数：**
-- `client`: LensClient - Lens客户端实例
+- `client`: GraphQLClient - GraphQL客户端实例
 - `accountId`: string - 用户ID（用户名或地址）
 
 **返回：**
 - Promise<Object> - 包含单个用户信息的对象
+
+#### searchAccountsWithMLScore(searchQuery, limit)
+
+搜索账户并获取ML Scores。
+
+**参数：**
+- `searchQuery`: string - 搜索关键词
+- `limit`: number - 返回结果数量限制（默认10）
+
+**返回：**
+- Promise<Array<Object>> - 包含搜索结果和ML Score的数组
+
+**示例：**
+```javascript
+const results = await searchAccountsWithMLScore('lens', 10);
+```
 
 ### 📊 返回数据格式
 
@@ -209,13 +244,21 @@ A complete Lens Protocol ML Score fetching tool with features:
 npm install
 ```
 
-#### Step 2: Run Example
+#### Step 2: Run Demo (Recommended)
+
+```bash
+npm run demo
+```
+
+This runs a demo with mock data, showing how all features work.
+
+#### Step 3: Run Real API Example
+
+**Note:** Requires network access to `https://api.lens.xyz`
 
 ```bash
 npm run example
 ```
-
-#### Step 3: View Results
 
 The program will automatically query example users' ML Scores and display results in the terminal.
 
@@ -259,7 +302,18 @@ lens_test_lanexio/
 ├── src/
 │   └── index.js             # Core functionality
 └── examples/
-    └── fetch-ml-scores.js   # Usage examples
+    ├── fetch-ml-scores.js   # Real API usage example
+    └── demo.js              # Demo script (mock data)
+```
+
+### 🎮 Available Scripts
+
+```bash
+# Run demo (with mock data to show functionality)
+npm run demo
+
+# Run real API example (requires network connection)
+npm run example
 ```
 
 ### 🔧 API Documentation

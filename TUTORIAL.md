@@ -68,15 +68,30 @@ lens_test_lanexio/
 
 ### 第四步：运行示例代码
 
-#### 方式一：运行完整示例
+#### 方式一：运行演示脚本（推荐新手）
+
+```bash
+npm run demo
+```
+
+这会运行一个带模拟数据的演示脚本，展示所有功能。无需网络连接，非常适合学习和测试。
+
+**演示内容包括：**
+- 逐个查询用户示例
+- 批量查询示例
+- 数据分析示例（排名、统计等）
+
+#### 方式二：运行真实API示例
+
+**注意：需要能够访问 `https://api.lens.xyz`**
 
 ```bash
 npm run example
 ```
 
-这会执行 `examples/fetch-ml-scores.js` 文件，展示两种查询方式的效果。
+这会执行 `examples/fetch-ml-scores.js` 文件，连接真实的Lens Protocol API查询数据。
 
-#### 方式二：自定义查询
+#### 方式三：自定义查询
 
 创建你自己的查询脚本：
 
@@ -92,8 +107,8 @@ import { fetchMLScores } from './src/index.js';
 
 // 定义你要查询的用户列表
 const userIds = [
-  'stani',           // 替换成你想查询的用户名
-  'lensprotocol',    // 或者以太坊地址
+  'lens/stani',           // 替换成你想查询的用户名
+  'lens/lensprotocol',    // 或者以太坊地址
 ];
 
 // 执行查询
@@ -113,6 +128,10 @@ node my-query.js
 
 #### 5.1 核心函数说明
 
+**initGraphQLClient()**
+- 功能：初始化GraphQL客户端
+- 返回：GraphQLClient实例
+
 **fetchMLScores(userIds)**
 - 功能：逐个查询多个用户的 ML Score
 - 参数：`userIds` - 用户ID数组（可以是用户名或地址）
@@ -126,9 +145,16 @@ node my-query.js
 **fetchSingleMLScore(client, accountId)**
 - 功能：查询单个用户的 ML Score
 - 参数：
-  - `client` - Lens 客户端实例
+  - `client` - GraphQL 客户端实例
   - `accountId` - 用户ID（用户名或地址）
 - 返回：Promise，包含单个用户信息的对象
+
+**searchAccountsWithMLScore(searchQuery, limit)**
+- 功能：搜索账户并获取ML Scores
+- 参数：
+  - `searchQuery` - 搜索关键词
+  - `limit` - 返回结果数量限制（默认10）
+- 返回：Promise，包含搜索结果的数组
 
 #### 5.2 返回数据结构
 
@@ -165,14 +191,14 @@ node my-query.js
 #### 6.1 导入功能
 
 ```javascript
-import { fetchMLScores, fetchMLScoresBulk } from './src/index.js';
+import { fetchMLScores, fetchMLScoresBulk, searchAccountsWithMLScore } from './src/index.js';
 ```
 
 #### 6.2 查询单个或多个用户
 
 ```javascript
-// 方式1：使用用户名查询
-const results = await fetchMLScores(['stani', 'lensprotocol']);
+// 方式1：使用用户名查询（注意：用户名格式为 lens/username）
+const results = await fetchMLScores(['lens/stani', 'lens/lensprotocol']);
 
 // 方式2：使用地址查询
 const results = await fetchMLScores([
@@ -182,8 +208,11 @@ const results = await fetchMLScores([
 // 方式3：批量查询（推荐用于大量地址）
 const results = await fetchMLScoresBulk([
   '0x01d79BcEaEaaDfb8fD2F2f53005289CFcF483464',
-  '0xEEA0C1f5ab0159dba749Dc0BAee462E5e293daaF'
+  '0x7241DDDec3A6aF367882eAF9651b87E1C7549Dff'
 ]);
+
+// 方式4：搜索账户
+const results = await searchAccountsWithMLScore('lens', 10);
 ```
 
 #### 6.3 处理返回结果
