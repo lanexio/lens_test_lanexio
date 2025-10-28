@@ -32,7 +32,6 @@ export class LensMLScoreFetcher {
   constructor(endpoint?: string) {
     this.endpoint = endpoint || LENS_API_CONFIG.DEFAULT_ENDPOINT;
     this.client = new GraphQLClient(this.endpoint, {
-      timeout: LENS_API_CONFIG.TIMEOUT,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -268,7 +267,6 @@ export class LensMLScoreFetcher {
   useTestnet(): void {
     this.endpoint = LENS_API_CONFIG.TESTNET_ENDPOINT;
     this.client = new GraphQLClient(this.endpoint, {
-      timeout: LENS_API_CONFIG.TIMEOUT,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -281,7 +279,6 @@ export class LensMLScoreFetcher {
   useMainnet(): void {
     this.endpoint = LENS_API_CONFIG.MAINNET_ENDPOINT;
     this.client = new GraphQLClient(this.endpoint, {
-      timeout: LENS_API_CONFIG.TIMEOUT,
       headers: {
         'Content-Type': 'application/json',
       },
