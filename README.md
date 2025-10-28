@@ -8,6 +8,9 @@
 
 A complete solution to fetch ML Scores (Machine Learning Scores) from the Lens Protocol, based on the [official Lens Protocol documentation](https://lens.xyz/docs/protocol/accounts/fetch).
 
+> 📖 **中文用户**: 完整中文教程请查看 [README_CN.md](./README_CN.md)  
+> 📖 **Chinese Users**: For complete Chinese tutorial, see [README_CN.md](./README_CN.md)
+
 ## ✨ 特性 / Features
 
 - ✅ **单账户查询** - 获取单个账户的 ML 分数 / Fetch ML score for a single account
